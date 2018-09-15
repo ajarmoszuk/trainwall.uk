@@ -16,6 +16,26 @@
   <link rel="mask-icon" href="/assets/images/icons/safari-pinned-tab.svg" color="#282828">
   <meta name="msapplication-TileColor" content="#ffc40d">
   <meta name="theme-color" content="#ffffff">
+
+  <!-- Matomo -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+      _paq.push(["setCookieDomain", "*.trainwall.uk"]);
+      _paq.push(["setDomains", ["*.trainwall.uk"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.delta360.net/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '4']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//analytics.delta360.net/piwik.php?idsite=4&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
 </head>
 
 <body>
@@ -51,37 +71,7 @@
 </div>
 </div>
 
-<script>
-var url = new URL(window.location.href);
-var station = url.searchParams.get("station");
+<script src="/assets/js/wallboard.min.js"></script>
 
-var apiURL = 'https://fcc.transportapi.com/v3/uk/train/station/'+ station +'/live.json?limit=20';
-
-new Vue({
-
-  el: '#app',
-
-  data: {
-    items: null
-  },
-
-  created: function () {
-    this.fetchData();
-  },
-
-  methods: {
-    fetchData: function () {
-    var self = this;
-    $.get( apiURL, function( data ) {
-        self.items = data.departures.all;
-        console.log(data.departures.all);
-    });
-
-    }
-
-  }
-});
-</script>
 </body>
-
 </html>
