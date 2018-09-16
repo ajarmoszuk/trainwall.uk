@@ -24,9 +24,13 @@ new Vue({
 
 $(document).ready(function() {
     $('#select-station').change(selectStation);
+    $('.js-select-single').select2({
+        placeholder: 'Click here to select...',
+        width: '350px',
+      });
 });
 
 function selectStation() {
     var station = $("#select-station").val();
-    $("#select-link").attr('href', '/trains.html?station=' + station);
+    $("#select-link").attr('href', '/trains?station=' + station);
 }

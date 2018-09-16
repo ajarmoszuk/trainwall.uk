@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" integrity="sha256-zIG416V1ynj3Wgju/scU80KAEWOsO5rRLfVyRDuOv7Q=" crossorigin="anonymous" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <link href="./assets/css/custom.min.css" rel="stylesheet" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
@@ -47,10 +50,9 @@
     Select your station...
     </h1>
     <div class="select is-medium" id="app">
-      <select name="station" id="select-station">
-        <option default>Click here to select...</option>
+      <select name="station" class="js-select-single js-states" id="select-station">
         <option v-for="item in items" :value="item.crs">{{ item.name }} ({{ item.crs }})</p>
-      </select></br>
+      </select></br></br>
       <a class="button is-medium is-black" id="select-link" href="#">Check</a>
     </div>
   </div>
@@ -60,7 +62,8 @@
     <div class="content has-text-centered">
       <p>
         Side-project by <a href="https://alex.jarmosz.uk/">Alex Jarmoszuk</a>.<br/>
-        The website content is licensed under <a href="http://www.wtfpl.net/">WTFPL</a>.
+        The website content is licensed under <a href="http://www.wtfpl.net/">WTFPL</a>.<br/>
+        Powered by Vue.js and Bulma CSS.
       </p>
     </div>
 </footer>
